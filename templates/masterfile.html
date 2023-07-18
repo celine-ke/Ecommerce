@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super E-commerce</title>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+
+</head>
+<body>
+<section class="navigation-section">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Super E-commerce</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'homepage' %}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CONTACT US</a>
+                </li>
+                {% if user.is_authenticated %}:
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addproduct' %}">ADD PRODUCT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'proddisplay' %}">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user-logout' %}">LOGOUT</a>
+
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'reg-user' %}">REGISTER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user-login' %}">LOGIN</a>
+                    </li>
+                {% endif %}
+             </ul>
+         </div>
+    </nav>
+</section>
+<section class="content-section">
+    {% for message in messages %}
+        <p class="text-center">{{ message }}</p>
+    {% endfor %}
+
+
+    {% block content %}
+
+    {% endblock %}
+</section>
+
+</body>
+</html>

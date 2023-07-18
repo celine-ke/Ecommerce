@@ -1,0 +1,33 @@
+{% extends 'masterfile.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <h1 class="text-center text-info">All Products</h1>
+            {% for message in messages %}
+                <p class="text-success">{{ message }}</p>
+            {% endfor %}
+
+            <table class="table table-hover table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                {% for product in products %}
+                     <tr>
+                     <td>{{ product.name }}</td>
+                     <td>{{ product.qtty }}</td>
+                     <td>{{ product.size }}</td>
+                     <td>{{ product.price }}</td>
+                     <td><a class="btn btn-danger" href="/del-prod/{{ product.id }}">Delete</a></td>
+                     <td><a class="btn btn-info" href="/update-product/{{ product.id }}">Update</a></td>
+                 </tr>
+                {% endfor %}
+             </table>
+
+    </div>
+{% endblock %}
+
