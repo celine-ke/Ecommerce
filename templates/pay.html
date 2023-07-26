@@ -1,0 +1,21 @@
+{% extends 'masterfile.html' %}
+{% load static %}
+{% block content %}
+    <div>
+      <h1 class="text-info text-center">Paying for {{ product.name }}</h1>
+        <form class="product-form" method="post" action="">
+            <p>{{ success }}</p>
+            {% csrf_token %}
+            <input value="{{ product.price }}" required readonly class="form-control" name="p-price" type="text"><br>
+            <input required class="form-control" placeholder="Phone number" name="c-phone" type="text">
+            <input class="btn btn-info" value="Pay" type="submit">
+            <p>{{ prod_name }}</p>
+            <p>{{ prod_qtty }}</p>
+            <p>{{ prod_size }}</p>
+            <p>{{ prod_price  }}</p>
+
+
+        </form>
+    </div>
+
+{% endblock %}

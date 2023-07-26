@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ao5p*t%aamufvwlnr!mpx-zbqn=zg3r4enyte+_0&a9$-_41(y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'superEcommerceDjangoProject',
     'crispy_forms',
-    'crispy_bootstrap4'
+    'crispy_bootstrap4',
+    'django_daraja'
 
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
